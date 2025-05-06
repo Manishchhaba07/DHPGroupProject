@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Countries | AQI Dashboard</title>
+  <link rel="stylesheet" href="/static/css/enhanced_styles.css">
+  <link rel="stylesheet" href="/static/css/enhanced_compare.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="navbar-page">
+
+<!-- Welcome Box Animation -->
+<div id="welcomeBox" class="welcome-box">
+  <h2><i class="fas fa-exchange-alt"></i> Compare Countries</h2>
+  <p>Analyze and compare air quality metrics across different nations</p>
+  <button onclick="closeWelcome()">Get Started</button>
+</div>
+
+<!-- Top Navbar -->
+<div class="top-navbar">
+  <div class="navbar-logo">
+    <!-- <img src="/static/img/logo.jpeg" alt="Dashboard Logo" class="navbar-logo-img"> -->
+    <span>AQI Dashboard</span>
+  </div>
+  <div class="navbar-links">
+    <a href="/"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="/compare"><i class="fas fa-exchange-alt"></i> Compare Countries</a>
+    <a href="/city-view"><i class="fas fa-city"></i> City View</a>
+    <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1 class="highlight fade-in">📊 Compare Countries</h1>
+  <p class="scroll-animate">
+    Welcome to the Compare Countries section of the AQI Dashboard. Explore different analyses, graphs, and rankings 
+    to understand the air quality situation globally and make informed comparisons between nations.
+  </p>
+
+  <div class="summary-grid scroll-animate">
+
+    <div class="summary-card">
+      <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>📈 Trend Analysis</h3>
+      <p>Visualize how each country's air quality has changed over the years. Track improvements or deteriorations in air quality with interactive time-series graphs.</p>
+      <a href="/trends" class="card-button">View Trends</a>
+    </div>
+
+    <div class="summary-card">
+      <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+      <h3>🖱️ Interactive Graphs</h3>
+      <p>Compare countries by selecting them to view their AQI trends side by side. Customize your view with different metrics and time periods.</p>
+      <a href="/graphs" class="card-button">Open Graphs</a>
+    </div>
+
+    <div class="summary-card">
+      <div class="card-icon"><i class="fas fa-medal"></i></div>
+      <h3>🏆 Country Rankings</h3>
+      <p>View the best and worst performing countries in terms of air quality. Understand where each nation stands in the global context.</p>
+      <a href="/ranking" class="card-button">View Rankings</a>
+    </div>
+
+    <div class="summary-card">
+      <div class="card-icon"><i class="fas fa-brain"></i></div>
+      <h3>💡 Data Insights</h3>
+      <p>Discover patterns, correlations, and key findings from our air quality analysis. Get deeper understanding of global trends and factors.</p>
+      <a href="/insights" class="card-button">Explore Insights</a>
+    </div>
+
+  </div>
+
+  <h2 class="highlight scroll-animate">🌍 Featured Comparison</h2>
+  <div class="featured-comparison scroll-animate">
+    <div class="comparison-intro">
+      <p>This interactive chart compares AQI trends across major economic regions. Select different regions to visualize and compare their air quality patterns over time.</p>
+    </div>
+    
+    <div class="quick-comparison">
+      <div class="region-selector">
+        <h3>Select Regions to Compare:</h3>
+        <div class="region-options">
+          <label><input type="checkbox" name="region" value="northAmerica" checked> North America</label>
+          <label><input type="checkbox" name="region" value="europe" checked> Europe</label>
+          <label><input type="checkbox" name="region" value="asia"> Asia</label>
+          <label><input type="checkbox" name="region" value="africa"> Africa</label>
+          <label><input type="checkbox" name="region" value="southAmerica"> South America</label>
+          <label><input type="checkbox" name="region" value="oceania"> Oceania</label>
+        </div>
+        <button id="updateComparisonBtn" class="comparison-button">Update Comparison</button>
+      </div>
+      
+      <div class="comparison-chart-container">
+        <canvas id="quickComparisonChart" height="250"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="highlight scroll-animate">🔍 Comparison Methods</h2>
+  <div class="methods-grid scroll-animate">
+    <div class="method-card">
+      <h3><i class="fas fa-calendar-alt"></i> Time-Based</h3>
+      <p>Compare how air quality in different countries has changed over months, seasons, and years. Identify cyclical patterns and long-term trends.</p>
+    </div>
+    
+    <div class="method-card">
+      <h3><i class="fas fa-industry"></i> Economic Activity</h3>
+      <p>Correlate air quality with economic indicators like GDP, industrial output, and energy consumption to understand the relationship between development and pollution.</p>
+    </div>
+    
+    <div class="method-card">
+      <h3><i class="fas fa-leaf"></i> Policy Impact</h3>
+      <p>Assess the effectiveness of environmental policies by comparing air quality before and after implementation of major regulations in different countries.</p>
+    </div>
+    
+    <div class="method-card">
+      <h3><i class="fas fa-users"></i> Population Density</h3>
+      <p>Examine how population density affects air quality by comparing urban centers with rural areas within and across different countries.</p>
+    </div>
+  </div>
+
+  <!-- <h2 class="highlight scroll-animate">📱 Get More with Our Mobile App</h2>
+  <div class="app-promo scroll-animate">
+    <div class="app-info">
+      <p>Download our mobile app for on-the-go access to air quality data, personalized alerts, and more detailed comparisons. Available for iOS and Android devices.</p>
+      <div class="app-buttons">
+        <button class="app-button"><i class="fab fa-apple"></i> App Store</button>
+        <button class="app-button"><i class="fab fa-google-play"></i> Google Play</button>
+      </div>
+    </div>
+    <div class="app-image">
+      <img src="/static/img/mobile-app-mockup.png" alt="Mobile App" onerror="this.src='https://via.placeholder.com/300x500?text=Mobile+App+Preview'">
+    </div>
+  </div> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Welcome box animation
+      setTimeout(function() {
+        document.getElementById("welcomeBox").style.display = "block";
+      }, 500);
+
+      // Scroll animations
+      const scrollElements = document.querySelectorAll(".scroll-animate");
+      
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add("visible");
+      };
+
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      // Initialize on load
+      handleScrollAnimation();
+      
+      // Add scroll event
+      window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+      });
+
+      // Quick comparison chart
+      const ctx = document.getElementById('quickComparisonChart').getContext('2d');
+      
+      // Sample data (would be replaced with actual API data)
+      const compareData = {
+        years: [2018, 2019, 2020, 2021, 2022, 2023, 2024],
+        northAmerica: [12.3, 11.8, 10.7, 11.2, 10.9, 10.3, 9.8],
+        europe: [14.5, 13.9, 12.8, 13.4, 12.6, 12.1, 11.7],
+        asia: [58.7, 54.2, 49.8, 52.3, 51.7, 50.2, 48.5],
+        africa: [45.8, 47.2, 46.9, 48.3, 51.2, 55.6, 57.8],
+        southAmerica: [20.3, 19.7, 18.5, 19.2, 18.8, 18.4, 17.9],
+        oceania: [8.7, 8.2, 7.9, 8.1, 7.8, 7.5, 7.2]
+      };
+      
+      let comparisonChart = null;
+      
+      function updateChart() {
+        const selectedRegions = Array.from(document.querySelectorAll('input[name="region"]:checked')).map(el => el.value);
+        
+        const datasets = selectedRegions.map(region => {
+          const colors = {
+            northAmerica: '#4e79a7',
+            europe: '#59a14f',
+            asia: '#f28e2c',
+            africa: '#e15759',
+            southAmerica: '#76b7b2',
+            oceania: '#af7aa1'
+          };
+          
+          const labels = {
+            northAmerica: 'North America',
+            europe: 'Europe',
+            asia: 'Asia',
+            africa: 'Africa',
+            southAmerica: 'South America',
+            oceania: 'Oceania'
+          };
+          
+          return {
+            label: labels[region],
+            data: compareData[region],
+            borderColor: colors[region],
+            backgroundColor: colors[region] + '20',
+            tension: 0.3,
+            fill: true
+          };
+        });
+        
+        if (comparisonChart) {
+          comparisonChart.destroy();
+        }
+        
+        comparisonChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: compareData.years,
+            datasets: datasets
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Regional AQI Comparison (2018-2024)',
+                color: '#ffffff'
+              },
+              legend: {
+                position: 'bottom',
+                labels: {
+                  color: '#e0e0e0'
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Average AQI',
+                  color: '#e0e0e0'
+                },
+                grid: {
+                  color: '#333333'
+                },
+                ticks: {
+                  color: '#e0e0e0'
+                }
+              },
+              x: {
+                grid: {
+                  color: '#333333'
+                },
+                ticks: {
+                  color: '#e0e0e0'
+                }
+              }
+            },
+            animation: {
+              duration: 2000,
+              easing: 'easeOutQuart'
+            }
+          }
+        });
+      }
+      
+      document.getElementById('updateComparisonBtn').addEventListener('click', updateChart);
+      
+      // Initialize chart
+      updateChart();
+    });
+
+    function closeWelcome() {
+      document.getElementById("welcomeBox").style.display = "none";
+    }
+  </script>
+</body>
+</html>

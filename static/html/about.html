@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Global Air Quality Dashboard</title>
+  <link rel="stylesheet" href="/static/css/about.css">
+  <link rel="stylesheet" href="/static/css/enhanced_styles.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* About page specific styles */
+    body {
+      background: linear-gradient(135deg, #1a2a6c 0%, #2a4688 25%, #2a5298 50%, #1e88e5 75%, #4dabf5 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    
+    .about-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+    
+    .about-section:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .main-content {
+      width: 100%;
+      padding: 2rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    /* Full screen for about page */
+    .full-about-content {
+      padding-left: 2rem;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="about-page">
+  <!-- Menu toggle removed as requested -->
+
+  <!-- Sidebar Navigation - Hidden by default on about page -->
+  <div class="sidebar sidebar-hidden">
+    <div class="logo-container">
+      <img src="/static/img/logo.jpeg" alt="Dashboard Logo" class="logo-img">
+    </div>
+
+    <div class="dashboard-box">
+      <h2 class="dashboard-title">AQI Dashboard</h2>
+      <div class="nav-box"><a href="/"><i class="fas fa-home"></i> Dashboard</a></div>
+      <div class="nav-box"><a href="/compare"><i class="fas fa-exchange-alt"></i> Compare Countries</a></div>
+      <div class="nav-box"><a href="/city-view"><i class="fas fa-city"></i> City View</a></div>
+      <div class="nav-box"><a href="/ranking"><i class="fas fa-sort-amount-down"></i> Rankings</a></div>
+      <div class="nav-box"><a href="/insights"><i class="fas fa-lightbulb"></i> Insights</a></div>
+      <div class="nav-box"><a href="/about" class="active"><i class="fas fa-info-circle"></i> About</a></div>
+    </div>
+
+
+  </div>
+
+  <!-- Main Content - Full width for about page -->
+  <div class="main-content full-about-content">
+    <h1 class="highlight fade-in">ℹ️ About Our Air Quality Platform</h1>
+
+    <section class="hero scroll-animate">
+      <div class="hero-content">
+        <h2>Understanding Our Mission</h2>
+        <p>Providing accurate and accessible air quality data to promote environmental awareness and public health.</p>
+      </div>
+    </section>
+
+    <section class="about-section scroll-animate">
+      <h2>Our Vision</h2>
+      <p>At the Global Air Quality Dashboard, we believe that access to accurate air quality information is essential for public health and environmental decision-making. Our platform is designed to make complex air quality data accessible, understandable, and actionable for everyone.</p>
+      
+      <p>Air pollution is one of the greatest environmental health threats of our time, contributing to millions of premature deaths annually. By providing comprehensive visualization tools, we aim to raise awareness about air quality issues and empower individuals, communities, and policymakers to take informed action.</p>
+    </section>
+
+    <section class="about-section scroll-animate">
+      <h2>Technology & Data Sources</h2>
+      <p>This dashboard has been built using a combination of modern web technologies and reliable data sources to ensure accurate and responsive visualization of air quality information.</p>
+      
+      <div class="tech-grid">
+        <div class="tech-card">
+          <i class="fas fa-server"></i>
+          <h3>Backend</h3>
+          <ul>
+            <li>Python Flask - Web framework</li>
+            <!-- <li>SQLAlchemy - Database ORM</li> -->
+            <li>Pandas - Data processing</li>
+            <li>NumPy - Numerical operations</li>
+            <li>Gunicorn - WSGI server</li>
+          </ul>
+        </div>
+        
+        <div class="tech-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Frontend</h3>
+          <ul>
+            <li>HTML & CSS - Structure & styling</li>
+            <li>JavaScript - Dynamic behaviors</li>
+            <li>Chart.js - Data visualization</li>
+            <li>Font Awesome - Icon library</li>
+            <!-- <li>AJAX - Asynchronous data requests</li> -->
+          </ul>
+        </div>
+        
+        <div class="tech-card">
+          <i class="fas fa-database"></i>
+          <h3>Data Sources</h3>
+          <ul>
+            <li><a href="https://www.aqi.in/in" target="_blank">IQAir AirVisual - Global AQI data</a></li>
+            <li><a href="https://www.iqair.com/in-en/" target="_main">OpenAQ - Historical air quality data</a></li>
+            <li><a href="https://www.who.int/" target="_blank">WHO Air Quality Database</a></li>
+            <!-- <li>National environmental monitoring stations</li>
+            <li>Public government environmental datasets</li> -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section scroll-animate">
+      <h2>About the Data</h2>
+      <p>Our dashboard utilizes the Air Quality Index (AQI), a standardized indicator developed by environmental agencies to communicate how polluted the air is and what associated health effects might be a concern. The AQI focuses on health effects that may be experienced within a few hours or days after breathing polluted air.</p>
+      
+      <p>We collect and analyze global air quality data from various monitoring stations, focusing primarily on PM2.5 levels (fine particulate matter 2.5 micrometers or smaller in diameter), which is one of the most harmful air pollutants to human health due to its ability to penetrate deep into the lungs and bloodstream.</p>
+      
+      <div class="data-processing">
+        <h3>Data Processing Workflow</h3>
+        <ol>
+          <li>Collection from authoritative sources</li>
+          <li>Cleaning and normalization of formats</li>
+          <li>Statistical analysis and aggregation</li>
+          <li>Transformation into visualizable formats</li>
+          <!-- <li>Regular updates to maintain accuracy</li> -->
+        </ol>
+      </div>
+      
+      <div class="aqi-scale">
+        <h3>AQI Scale and Health Implications</h3>
+        <div class="scale-item" style="background-color: rgba(0, 228, 0, 0.2);">
+          <div class="color-block" style="background-color: #00e400;"></div>
+          <div class="scale-details">
+            <h4>Good (0-50)</h4>
+            <p>Air quality is considered satisfactory, and air pollution poses little or no risk.</p>
+          </div>
+        </div>
+        <div class="scale-item" style="background-color: rgba(255, 255, 0, 0.2);">
+          <div class="color-block" style="background-color: #ffff00;"></div>
+          <div class="scale-details">
+            <h4>Moderate (51-100)</h4>
+            <p>Air quality is acceptable; however, there may be a moderate health concern for a very small number of people.</p>
+          </div>
+        </div>
+        <div class="scale-item" style="background-color: rgba(255, 126, 0, 0.2);">
+          <div class="color-block" style="background-color: #ff7e00;"></div>
+          <div class="scale-details">
+            <h4>Unhealthy for Sensitive Groups (101-150)</h4>
+            <p>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
+          </div>
+        </div>
+        <div class="scale-item" style="background-color: rgba(255, 0, 0, 0.2);">
+          <div class="color-block" style="background-color: #ff0000;"></div>
+          <div class="scale-details">
+            <h4>Unhealthy (151-200)</h4>
+            <p>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects.</p>
+          </div>
+        </div>
+        <div class="scale-item" style="background-color: rgba(153, 0, 76, 0.2);">
+          <div class="color-block" style="background-color: #99004c;"></div>
+          <div class="scale-details">
+            <h4>Very Unhealthy (201-300)</h4>
+            <p>Health warnings of emergency conditions. The entire population is more likely to be affected.</p>
+          </div>
+        </div>
+        <div class="scale-item" style="background-color: rgba(126, 0, 35, 0.2);">
+          <div class="color-block" style="background-color: #7e0023;"></div>
+          <div class="scale-details">
+            <h4>Hazardous (301+)</h4>
+            <p>Health alert: everyone may experience more serious health effects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section scroll-animate">
+      <h2>Features of Our Dashboard</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>City View Map</h3>
+          <p>Interactive map displaying AQI levels across cities in India with color-coded markers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Trends Analysis</h3>
+          <p>Historical data visualization showing AQI trends across countries over multiple years.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>Country Comparison</h3>
+          <p>Tools to compare air quality between different countries and regions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Insights Dashboard</h3>
+          <p>Analytical insights about global air pollution patterns and seasonal variations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section scroll-animate">
+      <h2>How to Use This Dashboard</h2>
+      <ol class="usage-steps">
+        <li>
+          <span class="step-number">1</span>
+          <div class="step-content">
+            <h3>Explore the map</h3>
+            <p>Use the City View to see AQI levels across different locations with interactive markers.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <div class="step-content">
+            <h3>Track historical data</h3>
+            <p>Check the Trends page to understand how air quality has changed over time in different regions.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <div class="step-content">
+            <h3>Compare regions</h3>
+            <p>Use the comparison tools to see how different areas compare in terms of air quality metrics.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <div class="step-content">
+            <h3>Gain insights</h3>
+            <p>Visit the Insights page for deeper analysis, patterns, and correlations in air quality data.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Air Quality Dashboard</h3>
+        <p>© 2025 Air Quality Monitoring Project</p>
+      </div>
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="/city-view"><i class="fas fa-city"></i> Map View</a></li>
+          <li><a href="/trends"><i class="fas fa-chart-line"></i> Trends</a></li>
+          <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/insights"><i class="fas fa-lightbulb"></i> Data Insights</a></li>
+          <li><a href="/ranking"><i class="fas fa-sort-amount-down"></i> Rankings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>All data is sourced from public environmental monitoring agencies. Last updated: May 2025.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Set up scroll animations
+      const scrollElements = document.querySelectorAll('.scroll-animate');
+      const sidebar = document.querySelector('.sidebar');
+      const mainContent = document.querySelector('.main-content');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add('visible');
+      };
+
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      // Initialize on load
+      handleScrollAnimation();
+      
+      // Add scroll event
+      window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+      });
+      
+      // Menu toggle removed as requested
+      // sidebar is permanently hidden and content is full width
+      
+
+      
+      // Add hover effects to sections
+      const sections = document.querySelectorAll('.about-section');
+      sections.forEach(section => {
+        section.addEventListener('mouseenter', () => {
+          section.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+          section.style.background = 'rgba(255, 255, 255, 0.15)';
+          section.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+        });
+        
+        section.addEventListener('mouseleave', () => {
+          section.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
+          section.style.background = 'rgba(255, 255, 255, 0.1)';
+          section.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        });
+      });
+      
+      // Add gradient hover effects to tech cards
+      const techCards = document.querySelectorAll('.tech-card');
+      techCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.backgroundImage = 'linear-gradient(135deg, rgba(26, 42, 108, 0.3) 0%, rgba(30, 136, 229, 0.3) 100%)';
+          this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.backgroundImage = 'none';
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
