@@ -1,0 +1,95 @@
+/* Custom styling improvements for AQI Dashboard */
+
+/* Global layout improvements */
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Trends page improvements */
+.page-limit select {
+  padding: 8px 15px;
+  border-radius: 6px;
+  margin-left: 8px;
+  background-color: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.page-limit select:hover {
+  background-color: #3b3b3b;
+  border-color: #666;
+}
+
+.page-limit select:focus {
+  outline: none;
+  border-color: #03dac6;
+  box-shadow: 0 0 5px rgba(3, 218, 198, 0.5);
+}
+
+.table-section {
+  width: 90%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+.controls {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.aqi-basics, .aqi-table-comparison {
+  width: 90%;
+  margin: 30px auto;
+}
+
+/* Graphs page improvements */
+.chart-box {
+  width: 90% !important;
+  max-width: 1200px;
+  height: 450px !important;
+  margin: 20px auto !important;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ranking page improvements */
+.chart-container {
+  height: 550px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.chart-wrapper {
+  width: 90% !important;
+  margin: 30px auto !important;
+  padding: 25px;
+}
+
+/* Center align content */
+.container, .view-options, .info-card, .indian-cities-section {
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Improved heading visibility */
+.chart-wrapper h2, .ranking-section h2, .info-card h2 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-box, .chart-container {
+    height: 350px !important;
+  }
+  
+  body {
+    padding: 0 10px;
+  }
+}

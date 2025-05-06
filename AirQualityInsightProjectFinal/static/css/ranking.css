@@ -1,0 +1,574 @@
+:root {
+  --primary-bg: #1e1e2e;
+  --secondary-bg: #252535;
+  --highlight-bg: #2d2d42;
+  --text-color: #e0e0e0;
+  --highlight-text: #ffffff;
+  --muted-text: #aaaaaa;
+  --accent-color: #7e57c2;
+  --accent-light: #9575cd;
+  --accent-dark: #5e35b1;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --border-radius: 8px;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heading h1 {
+  color: var(--accent-light);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ranking-section {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.ranking-section h2 {
+  color: var(--accent-light);
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--highlight-bg);
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--highlight-bg);
+  transition: background-color 0.3s ease;
+}
+
+.ranking-item:hover {
+  background-color: var(--highlight-bg);
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--highlight-bg);
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.top-rank {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.country-name {
+  flex-grow: 1;
+  font-size: 1.1rem;
+}
+
+.aqi-value {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  min-width: 60px;
+  text-align: center;
+}
+
+.good { 
+  background-color: rgba(0, 228, 0, 0.2);
+  color: #00e400;
+}
+
+.moderate { 
+  background-color: rgba(255, 255, 0, 0.2);
+  color: #ffff00;
+}
+
+.unhealthy-sensitive { 
+  background-color: rgba(255, 126, 0, 0.2);
+  color: #ff7e00;
+}
+
+.unhealthy { 
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.very-unhealthy { 
+  background-color: rgba(153, 0, 76, 0.2);
+  color: #99004c;
+}
+
+.hazardous { 
+  background-color: rgba(126, 0, 35, 0.2);
+  color: #7e0023;
+}
+
+.chart-wrapper {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.chart-wrapper h2 {
+  color: var(--accent-light);
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--highlight-bg);
+}
+
+.chart-detail-text {
+  color: var(--muted-text);
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  text-align: center;
+  font-style: italic;
+}
+
+.chart-container {
+  height: 500px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Modal styles for detailed view */
+.detail-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.detail-modal-content {
+  background: linear-gradient(145deg, #1a1a1a, #212121);
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 800px;
+  animation: modalFadeIn 0.3s ease-in-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-detail-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.close-detail-modal:hover,
+.close-detail-modal:focus {
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+.info-card {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.info-card h2 {
+  color: var(--accent-light);
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--highlight-bg);
+}
+
+.info-card p {
+  line-height: 1.6;
+}
+
+.aqi-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.scale-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--highlight-bg);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.scale-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.scale-label {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.scale-range {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+}
+
+#toggleView {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#toggleView:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.view-options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.view-options button {
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-options button:hover {
+  background-color: var(--highlight-bg);
+}
+
+.view-options button.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Indian Cities Section */
+.indian-cities-section {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.indian-cities-section h2 {
+  color: var(--accent-light);
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--highlight-bg);
+}
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.city-card {
+  background: linear-gradient(145deg, #252535, #2d2d42);
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.7s ease;
+}
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.city-card:hover::before {
+  left: 100%;
+}
+
+.city-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.city-aqi {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.city-monthly-data {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.month-data {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.month-name {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Detail Modal Styles */
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.detail-stat-item {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detail-stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  margin-bottom: 5px;
+}
+
+.detail-stat-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.health-impact {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.health-impact h3 {
+  margin-top: 0;
+  color: var(--accent-light);
+  margin-bottom: 15px;
+}
+
+.health-risk-indicator {
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.risk-level {
+  color: #111;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.detail-action-btn {
+  background: var(--highlight-bg);
+  border: none;
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-action-btn:hover {
+  background: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.detail-action-btn i {
+  font-size: 1.1rem;
+}
+
+/* City Monthly Chart */
+.city-monthly.chart-container {
+  height: 300px;
+  margin: 20px 0;
+}
+
+.monthly-breakdown {
+  margin-top: 20px;
+}
+
+.monthly-breakdown h3 {
+  color: var(--accent-light);
+  margin-bottom: 15px;
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.monthly-item {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.monthly-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.monthly-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.monthly-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Improved layout and chart display */
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.chart-wrapper {
+  width: 90%;
+  margin: 30px auto;
+  padding: 25px;
+}
+
+.chart-container {
+  height: 500px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Center align content */
+.container, .view-options, .info-card, .indian-cities-section {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Improved heading visibility */
+.chart-wrapper h2, .ranking-section h2, .info-card h2 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+}

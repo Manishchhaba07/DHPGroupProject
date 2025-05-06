@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>India AQI Map View</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/css/city_view.css">
+  <style>
+    .legend {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      color: #333;
+    }
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+    .legend h4 {
+      margin: 0 0 10px;
+      padding: 0;
+    }
+    #data-status {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px 12px;
+      margin: 10px auto;
+      border-radius: 6px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <h1>India City AQI Map View</h1>
+
+  <div class="controls">
+    <label for="month-selector">Select Month:</label>
+    <select id="month-selector">
+      <option value="Jan">January</option>
+      <option value="Feb">February</option>
+      <option value="Mar">March</option>
+      <option value="Apr">April</option>
+      <option value="May">May</option>
+      <option value="Jun">June</option>
+      <option value="Jul">July</option>
+      <option value="Aug">August</option>
+      <option value="Sep">September</option>
+      <option value="Oct">October</option>
+      <option value="Nov">November</option>
+      <option value="Dec">December</option>
+    </select>
+  </div>
+
+  <div id="data-status">Loading city data...</div>
+  
+  <div id="map"></div>
+
+  <div class="info-card">
+    <h3>About the Map</h3>
+    <p>This map displays air quality index (AQI) data for cities across India. The data is color-coded according to the US EPA AQI scale:</p>
+    <ul>
+      <li><span style="color: #00e400">Green (0-50):</span> Good</li>
+      <li><span style="color: #ffff00">Yellow (51-100):</span> Moderate</li>
+      <li><span style="color: #ff7e00">Orange (101-150):</span> Unhealthy for Sensitive Groups</li>
+      <li><span style="color: #ff0000">Red (151-200):</span> Unhealthy</li>
+      <li><span style="color: #99004c">Purple (201-300):</span> Very Unhealthy</li>
+      <li><span style="color: #7e0023">Maroon (301+):</span> Hazardous</li>
+    </ul>
+    <p>Click on any marker to see detailed information about that city's air quality.</p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="/static/js/city_view.js"></script>
+</body>
+</html>

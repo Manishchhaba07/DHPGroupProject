@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AQI Open Graphs</title>
+  <link rel="stylesheet" href="/static/css/graphs.css">
+  <link rel="stylesheet" href="/static/css/enhanced_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/js/graphs.js" defer></script>
+</head>
+<body class="navbar-page">
+
+  <!-- Top Navbar -->
+  <div class="top-navbar">
+    <div class="navbar-logo">
+      <!-- <img src="/static/img/logo.jpeg" alt="Dashboard Logo" class="navbar-logo-img"> -->
+      <span>AQI Dashboard</span>
+    </div>
+    <div class="navbar-links">
+      <a href="/"><i class="fas fa-home"></i> Dashboard</a>
+      <a href="/compare"><i class="fas fa-exchange-alt"></i> Compare Countries</a>
+      <a href="/city-view"><i class="fas fa-city"></i> City View</a>
+      <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-header">
+      <h1>Open Graphs — AQI Country Comparison</h1>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Graph Type:</label>
+        <select id="graphType">
+          <option value="line">Line Chart</option>
+          <option value="bar">Bar Chart</option>
+        </select>
+      </div>
+      
+      <div id="lineChartControls">
+        <div class="control-group">
+          <label>Country 1:</label>
+          <select id="country1"></select>
+        </div>
+        
+        <div class="control-group">
+          <label>Country 2:</label>
+          <select id="country2"></select>
+        </div>
+        
+        <div class="control-group">
+          <label>Country 3:</label>
+          <select id="country3"></select>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label id="yearLabel">Year:</label>
+        <select id="yearSelect">
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+        </select>
+      </div>
+
+      <button id="updateGraph">Update Graph</button>
+    </div>
+
+    <div class="chart-container">
+      <div class="chart-box">
+        <canvas id="aqiChart"></canvas>
+      </div>
+      <div id="noDataMessage" class="data-message hidden">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>Some data points are not available as this information was not reported on the official websites.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

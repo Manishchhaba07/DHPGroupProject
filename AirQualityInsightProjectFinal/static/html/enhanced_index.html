@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Dashboard</title>
+    <link rel="stylesheet" href="/static/css/enhanced_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Welcome Box Animation -->
+    <div id="welcomeBox" class="welcome-box">
+        <h2><i class="fas fa-leaf"></i> Welcome to AQI Dashboard</h2>
+        <p>Explore comprehensive air quality data from around the world</p>
+        <button onclick="closeWelcome()">Get Started</button>
+    </div>
+
+    <!-- 🔹 Sidebar -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="/static/img/logo.jpeg" alt="Dashboard Logo" class="logo-img">
+        </div>
+
+        <div class="dashboard-box">
+            <h2 class="dashboard-title">AQI Dashboard</h2>
+            <div class="nav-box"><a href="/"><i class="fas fa-home"></i> Dashboard</a></div>
+            <div class="nav-box"><a href="/compare"><i class="fas fa-exchange-alt"></i> Compare Countries</a></div>
+            <div class="nav-box"><a href="/city-view"><i class="fas fa-city"></i> City View</a></div>
+            <div class="nav-box"><a href="/about"><i class="fas fa-info-circle"></i> About</a></div>
+        </div>
+    </div>
+
+    <!-- 🔹 Main Content -->
+    <div class="main-content">
+        <h1 class="highlight fade-in">🌐 Global Air Quality Report - 2024</h1>
+
+        <!-- Overview -->
+        <h2 class="highlight scroll-animate">Overview</h2>
+        <p class="scroll-animate">
+            The <strong>World Air Quality Report 2024</strong> presents a comprehensive evaluation of air pollution trends across 140 countries and over 5,750 cities.
+            With over 15,000 monitoring stations contributing data, this report emphasizes the <span class="highlight">pressing need for global air quality reform</span>.
+        </p>
+        <p class="scroll-animate">
+            Globally, <strong class="highlight">only 7.6%</strong> of cities met the WHO's recommended PM2.5 threshold of 5μg/m³. In Asia, a staggering 97.7% of cities failed to meet the standard.
+        </p>
+
+        <!-- Most Polluted Countries -->
+        <h2 class="highlight scroll-animate">🌍 Most Polluted Countries in 2024</h2>
+        <ul class="scroll-animate">
+            <li><span class="country-link" data-country="Chad">Chad: </span> In 2024, <bold>Chad</bold> recorded an alarming AQI of 91.8, making it the most polluted country in Central Africa and topping the list as the #1 most polluted nation globally for the year.</li>
+            <li><span class="country-link" data-country="Bangladesh">Bangladesh: </span> ranked 2nd globally with the worst air quality, recording no good air quality month in 2024.</li>
+            <li><span class="country-link" data-country="Pakistan">Pakistan: </span> ranked as the third most polluted country in 2024, with cities like Peshawar and Lahore frequently recording AQI levels well above the unhealthy threshold.</li>
+            <li><span class="country-link" data-country="India">India: </span> ​In 2024, India ranked as the fifth most polluted country globally, with an average PM2.5 concentration of 50.6 µg/m³—ten times higher than the World Health Organization's recommended limit. Despite this, India was home to 13 of the world's 20 most polluted cities.​
+                
+                Byrnihat, a small industrial town on the Assam-Meghalaya border, emerged as the most polluted city worldwide, recording an annual average PM2.5 concentration of 128.2 µg/m³. New Delhi, the national capital, followed closely with PM2.5 levels averaging 107 µg/m³, making it India's second most polluted city. ​
+
+                The high pollution levels in these cities are attributed to factors such as industrial emissions, vehicular pollution, and unfavorable meteorological conditions that trap pollutants close to the ground.</li>
+        </ul>
+        <p style="font-size: 0.85em; color: #aaa;" class="scroll-animate">★ Sources: Indian Express, Wikipedia, and <a href="https://www.iqair.com/in-en/world-most-polluted-countries" target="_blank" rel="noopener noreferrer" class="animated-underline">IQAir</a></p>
+
+        <!-- Chart Container Removed -->
+
+        <!-- Most Polluted Cities -->
+        <h2 class="highlight scroll-animate">📈 Most Polluted Cities in India (2024)</h2>
+        <ul class="scroll-animate">
+            <li><strong>New Delhi</strong> <span class="badge">AQI: 169</span></li>
+            <li><strong>Greater Noida</strong> <span class="badge">AQI: 166</span></li>
+            <li><strong>Noida</strong> <span class="badge">AQI: 161</span></li>
+            <li><strong>Ghaziabad</strong> <span class="badge">AQI: 159</span></li>
+            <li><strong>Faridabad</strong> <span class="badge">AQI: 154</span></li>
+            <li><strong>Gurgaon</strong> <span class="badge">AQI: 154</span></li>
+            <li><strong>Bhiwadi</strong> <span class="badge">AQI: 153</span></li>
+            <li><strong>Patna</strong> <span class="badge">AQI: 145</span></li>
+        </ul>
+
+        <!-- Causes -->
+        <h2 class="highlight scroll-animate">🛑 Causes of Air Pollution</h2>
+        <ul class="scroll-animate">
+            <li>
+                <strong><i class="fas fa-car"></i> Vehicular Emissions:</strong>
+                Road transport is a major source of urban air pollution. Vehicles emit <span class="highlight">nitrogen oxides (NOₓ)</span>, <span class="highlight">carbon monoxide (CO)</span>, and <span class="highlight">particulate matter (PM)</span>. According to the World Health Organization, vehicle emissions are responsible for about <span class="highlight">30% of PM2.5 levels in major cities</span>.
+                <a href="https://en.wikipedia.org/wiki/Vehicle_emissions_control" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>
+            <li>
+                <strong><i class="fas fa-industry"></i> Industrial Activity:</strong>
+                Industries, especially in developing nations, release pollutants like <span class="highlight">sulfur dioxide (SO₂)</span>, <span class="highlight">nitrogen dioxide (NO₂)</span>, and <span class="highlight">volatile organic compounds (VOCs)</span>. These contribute to smog and acid rain. In India, industry accounts for about <span class="highlight">21% of total air pollution emissions</span>. 
+                <a href="https://en.wikipedia.org/wiki/Industrial_waste" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>
+            
+            <li>
+                <strong><i class="fas fa-hard-hat"></i> Construction and Road Dust:</strong>
+                Unregulated construction releases <span class="highlight">fugitive dust</span>, consisting of PM10 and PM2.5 particles. According to the Centre for Science and Environment (CSE), construction dust contributes to <span class="highlight">over 30% of PM2.5 pollution</span> in Indian cities like Delhi.
+                <a href="https://en.wikipedia.org/wiki/Fugitive_dust" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>
+            
+            <li>
+                <strong><i class="fas fa-tractor"></i> Agricultural Practices:</strong>
+                Stubble burning in northern India releases vast amounts of <span class="highlight">PM2.5, methane, and ammonia</span>. The Indian Agricultural Research Institute reports that stubble burning contributes up to <span class="highlight">35% of Delhi's pollution</span> in peak winter months. 
+                <a href="https://en.wikipedia.org/wiki/Agricultural_pollution" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>
+            
+            <li>
+                <strong><i class="fas fa-trash-alt"></i> Waste Burning:</strong>
+                Open burning of municipal and plastic waste emits toxic chemicals including <span class="highlight">black carbon</span>, <span class="highlight">dioxins</span>, and <span class="highlight">furans</span>. Studies estimate this source contributes up to <span class="highlight">11% of ambient PM2.5 levels</span> in Indian cities.
+                <a href="https://en.wikipedia.org/wiki/Open_burning_of_waste" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>
+            
+            <li>
+                <strong><i class="fas fa-wind"></i> Natural Causes:</strong>
+                Dust storms, wildfires, and volcanic eruptions contribute to temporary spikes in air pollution. For instance, <span class="highlight">dust storms from the Thar Desert</span> raise PM10 levels significantly during summer months across northwestern India.
+                <a href="https://simple.wikipedia.org/wiki/Air_pollution" target="_blank" rel="noopener noreferrer">(Wikipedia)</a>
+            </li>    
+        </ul>
+
+        <p style="font-size: 0.85em; color: #aaa;" class="scroll-animate">★ Sources: Wikipedia</p>
+
+        <!-- Health Impact -->
+        <h2 class="highlight scroll-animate">🏥 Health Impact</h2>
+        <p class="scroll-animate">
+            Air pollution poses a significant threat to global health, contributing to a wide range of serious health conditions.
+        </p>
+        <ul class="health-list scroll-animate">
+            <li>
+                <strong><i class="fas fa-heartbeat"></i> Premature Deaths:</strong>
+                According to the <strong>WHO</strong>, air pollution is responsible for around 
+                <span class="highlight">6.7 million premature deaths annually</span>, including 
+                <span class="highlight">4.2 million</span> from outdoor air pollution.
+            </li>
+            <li>
+                <strong><i class="fas fa-lungs"></i> Cardiovascular & Respiratory Diseases:</strong>
+                Prolonged exposure to pollutants like <span class="highlight">PM2.5</span> and <span class="highlight">NO₂</span> increases the risk of 
+                <span class="highlight">heart disease</span>, <span class="highlight">stroke</span>, 
+                <span class="highlight">chronic obstructive pulmonary disease (COPD)</span>, and 
+                <span class="highlight">lung cancer</span>.
+            </li>
+            <li>
+                <strong><i class="fas fa-child"></i> Children's Health:</strong>
+                Air pollution causes <span class="highlight">acute lower respiratory infections</span> in children 
+                and impairs lung development, especially in urban areas with high traffic and industrial activity.
+            </li>
+            <li>
+                <strong><i class="fas fa-baby"></i> Pregnancy & Infant Health:</strong>
+                Exposure to polluted air during pregnancy is linked to 
+                <span class="highlight">up to 6 million premature births</span> and 
+                <span class="highlight">3 million low-birth-weight babies</span> globally each year.
+            </li>
+            <li>
+                <strong><i class="fas fa-brain"></i> Brain & Neurological Effects:</strong>
+                Recent studies suggest that pollutants may enter the brain and contribute to 
+                <span class="highlight">neurodegenerative diseases</span> such as Alzheimer's and Parkinson's.
+            </li>
+        </ul>
+
+        <p style="font-size: 0.85em; color: #aaa;" class="scroll-animate">★ Sources: Wikipedia</p>
+
+        <!-- Conclusion -->
+        <h2 class="highlight scroll-animate">✅ Conclusion</h2>
+        <div class="conclusion scroll-animate">
+            <p>
+                The overwhelming health impact of air pollution demands immediate action. 
+                High AQI levels in cities like <strong>Delhi</strong> and <strong>Lahore</strong> show the urgent need for reform.
+            </p>
+            <p>
+                Air pollution is not just an environmental crisis — it's a <span class="highlight">human health emergency</span>. 
+                Governments, communities, and individuals must collaborate to:
+            </p>
+            <ul>
+                <li>Enforce stricter <span class="highlight">emission standards</span>.</li>
+                <li>Promote <span class="highlight">clean energy solutions</span> and public transport.</li>
+                <li>Raise awareness and support community-led environmental efforts.</li>
+                <li>Invest in <span class="highlight">air quality monitoring</span> and data-driven policy making.</li>
+            </ul>
+        </div>
+
+        <!-- Script to Render Chart -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Welcome box animation
+                setTimeout(function() {
+                    document.getElementById("welcomeBox").style.display = "block";
+                }, 500);
+
+                // Scroll animations
+                const scrollElements = document.querySelectorAll(".scroll-animate");
+                
+                const elementInView = (el, dividend = 1) => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+                };
+
+                const displayScrollElement = (element) => {
+                    element.classList.add("visible");
+                };
+
+                const handleScrollAnimation = () => {
+                    scrollElements.forEach((el) => {
+                        if (elementInView(el, 1.25)) {
+                            displayScrollElement(el);
+                        }
+                    });
+                };
+
+                // Initialize on load
+                handleScrollAnimation();
+                
+                // Add scroll event
+                window.addEventListener("scroll", () => {
+                    handleScrollAnimation();
+                });
+
+                // Country links click handler - no chart functionality
+                document.querySelectorAll(".country-link").forEach(link => {
+                    link.addEventListener("click", function() {
+                        // Just log the country name but don't display any chart
+                        const country = this.getAttribute("data-country");
+                        console.log(`Selected country: ${country}`);
+                    });
+                });
+
+                // Disabled chart function
+                function showCountryChart(country) {
+                    chartTitle.textContent = `${country} AQI Trend (2018-2024)`;
+                    chartContainer.classList.remove("hidden");
+                    
+                    // Sample data - in a real app, this would come from an API
+                    let data;
+                    switch(country) {
+                        case "India":
+                            data = {
+                                labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                                values: [83.2, 72.5, 51.9, 58.1, 53.3, 54.8, 50.6]
+                            };
+                            break;
+                        case "Bangladesh":
+                            data = {
+                                labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                                values: [97.1, 83.3, 77.1, 76.9, 80.2, 79.9, 76.9]
+                            };
+                            break;
+                        case "Pakistan":
+                            data = {
+                                labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                                values: [74.3, 65.8, 59.0, 66.8, 70.9, 73.7, 73.7]
+                            };
+                            break;
+                        case "Chad":
+                            data = {
+                                labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                                values: [66.8, 72.1, 77.6, 79.8, 80.1, 89.7, 91.8]
+                            };
+                            break;
+                        default:
+                            data = {
+                                labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                                values: [65, 60, 55, 58, 60, 62, 59]
+                            };
+                    }
+
+                    // Create or update chart
+                    if (window.airQualityChart) {
+                        window.airQualityChart.data.labels = data.labels;
+                        window.airQualityChart.data.datasets[0].data = data.values;
+                        window.airQualityChart.update();
+                    } else {
+                        const ctx = document.getElementById('countryChart').getContext('2d');
+                        window.airQualityChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: data.labels,
+                                datasets: [{
+                                    label: 'Average Annual AQI',
+                                    data: data.values,
+                                    borderColor: '#3490dc',
+                                    backgroundColor: 'rgba(52, 144, 220, 0.1)',
+                                    borderWidth: 3,
+                                    pointBackgroundColor: '#3490dc',
+                                    pointRadius: 5,
+                                    tension: 0.2,
+                                    fill: true
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    tooltip: {
+                                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                        titleFont: {
+                                            size: 16
+                                        },
+                                        bodyFont: {
+                                            size: 14
+                                        },
+                                        callbacks: {
+                                            label: function(context) {
+                                                return `AQI: ${context.parsed.y}`;
+                                            }
+                                        }
+                                    },
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        labels: {
+                                            font: {
+                                                size: 14
+                                            }
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: false,
+                                        grid: {
+                                            color: 'rgba(200, 200, 200, 0.15)'
+                                        },
+                                        ticks: {
+                                            font: {
+                                                size: 12
+                                            }
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: 'AQI Value',
+                                            font: {
+                                                size: 14,
+                                                weight: 'bold'
+                                            }
+                                        }
+                                    },
+                                    x: {
+                                        grid: {
+                                            color: 'rgba(200, 200, 200, 0.15)'
+                                        },
+                                        ticks: {
+                                            font: {
+                                                size: 12
+                                            }
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: 'Year',
+                                            font: {
+                                                size: 14,
+                                                weight: 'bold'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // Scroll to chart
+                    chartContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+
+            // Functions
+            function closeWelcome() {
+                document.getElementById("welcomeBox").style.display = "none";
+            }
+        </script>
+    </div>
+</body>
+</html>
